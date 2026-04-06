@@ -1,0 +1,33 @@
+\drawings:
+  outputs:
+    dev:
+      dataset: drawings
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: US
+      method: oauth
+      priority: interactive
+      project: dze-final-project
+      threads: 1
+      type: bigquery
+  target: dev
+drawings_project:
+  outputs:
+    dev:
+      path: dev.duckdb
+      threads: 1
+      type: duckdb
+    dev_bq:
+      dataset: drawings
+      location: US
+      method: oauth
+      project: dze-final-project
+      threads: 4
+      timeout_seconds: 300
+      type: bigquery
+      keyfile: /home/marchanna111/dze-final-project-key.json
+    prod:
+      path: prod.duckdb
+      threads: 4
+      type: duckdb
+  target: dev
